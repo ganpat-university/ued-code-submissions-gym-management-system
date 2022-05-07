@@ -21,7 +21,6 @@
 	SELECT sum(Amount) as total FROM ued.course where Email=?;
 	<sql:param value="${obj.email}"></sql:param>
 </sql:query>
-
     <jsp:include page="header.jsp"></jsp:include>
 
     <div class="container-fluid dashboard">

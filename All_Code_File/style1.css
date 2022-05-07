@@ -117,7 +117,6 @@ li {
 .nav_floating_menu ul li a:hover {
   color: #31426e;
 }
-
 .menu {
   padding: 0;
   margin: 0;
@@ -392,6 +391,7 @@ textarea::placeholder {
   color: #0661d8;
 }
 .footer {
+  padding:10px;
   color: #95a5a6;
   text-align: center;
   background-color: #05102e;
@@ -400,6 +400,7 @@ textarea::placeholder {
 .dashboard {
   background-color: #2b2b2c;
   min-height: 93vh;
+  padding-bottom: 30px;
 }
 .dashboard .title-heading {
   padding: 10px 0px;
@@ -623,4 +624,8 @@ select option:hover {
   padding: 0;
   background-color: #17a2b8!important;
   /* background-color: #051129; */
+}
+/* trainer additional info */
+.dashboard .user_content h4{
+	
 }

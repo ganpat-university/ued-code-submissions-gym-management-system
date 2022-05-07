@@ -37,7 +37,7 @@ pageEncoding="ISO-8859-1"%>
       <sql:param value="${obj.email }"></sql:param>
       <sql:param value="${obj.pass }"></sql:param>
     </sql:query>
-    <jsp:include page="header.jsp"></jsp:include>
+    <jsp:include page="header2.jsp"></jsp:include>
     <div class="container-fluid profile_jsp">
       <div class="container">
         <div class="row d-flex align-items-center profile_b">
@@ -91,12 +91,12 @@ pageEncoding="ISO-8859-1"%>
               <form action="profile_pass.jsp" method="post">
                 <div class="row">
                 <div class="col-6">
-                  <input type="password" placeholder="Enter new password" name="pass" required/>
+                  <input type="password" placeholder="Enter new password" name="pass"/>
                   <input type="hidden" name="email" value="${obj.email}">
                   <input type="hidden" name="profile" value="${Profile }">
                 </div>
                 <div class="col-6">
-                  <input type="submit" value="Change"/>
+                  <input type="submit" />
                 </div></div>
               </form>
             </div>

@@ -12,7 +12,7 @@
 		<h3 class="display-3 text-success">Redirecting You to Login Page...</h3><br>
 		<a href="login.html" class="btn btn-outline-success">Go-To Login Page</a>
 	</div> 	
-	<% response.setHeader("Refresh", "5;login.html"); %>
+	<% response.setHeader("Refresh", "2;login.html"); %>
 	
 </body>
 </html>

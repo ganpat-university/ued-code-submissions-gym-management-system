@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>TRAINER PAGE</title>    
+    <title>Trainer Page</title>    
     <jsp:include page="head_content.jsp"></jsp:include>
     <link rel="stylesheet" href="style1.css" />
     <link rel="stylesheet" href="style2.css" />
@@ -83,7 +83,7 @@
                 <span class="fa fa-caret-down"></span>
                 <ul>
                   <li><a href="profile.jsp">Profile</a></li>
-                  <li><a href="user.jsp">USERS</a></li>
+                  <li><a href="trainer_customer.jsp">Customer</a></li>
                   <li><a href="dashboard.jsp">DashBoard</a></li>
                   <li>
 	                  <form action="log_out.jsp">
@@ -98,20 +98,7 @@
         
       </div>
     </div>
-    
-    <!-- testing -->
-    <!-- 
-    <div class="row user_head">
-    	<div class="col-4 title-heading">
-		<form action="search_content" method="post">
-			<input type="text" id="search" onclick="search_func()" class="search" name="search_value" placeholder="Search........" required autocomplete="off">
-			<label for="search"><i class="fa fa-search"></i></label>
-			<input type="submit" id="submit" value="search">
-        </form>
-    	</div>
-    </div>
--->
-    
+   
     <!-- Home Page Body -->
     <div class="container-fluid" id="main">
       <div class="row">
@@ -259,7 +246,7 @@
             </div>
             <div class="row heading">
               <div class="col">
-                <h4>BICEPS</h4>
+                <h4>DOLA SOLA</h4>
               </div>
             </div>
             <div class="row paragraph">
@@ -312,7 +299,8 @@
           </div>
           <div class="row p_content">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit temporibus tempora, voluptatem corporis quisquam debitis error a molestias incidunt eveniet! Deserunt minima odit sapiente quaerat delectus accusamus eligendi soluta assumenda.
+              Muscular strength enhances overall health and boosts athletic activity.
+                  A strong body allows you to perform movements and activities that require power without getting tired.
             </p>
           </div>
           <form action="course.jsp" method="post" class="form_cart">
@@ -343,7 +331,8 @@
           </div>
           <div class="row p_content">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit temporibus tempora, voluptatem corporis quisquam debitis error a molestias incidunt eveniet! Deserunt minima odit sapiente quaerat delectus accusamus eligendi soluta assumenda.
+              The abdominal muscles used to hold the body rigid during the push-up are the rectus abdominis and the internal and external obliques
+                  As the push-up involves multiple joints, it is a compound exercise
             </p>
           </div>
           <form action="course.jsp" method="post" class="form_cart">
@@ -374,7 +363,7 @@
           </div>
           <div class="row p_content">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit temporibus tempora, voluptatem corporis quisquam debitis error a molestias incidunt eveniet! Deserunt minima odit sapiente quaerat delectus accusamus eligendi soluta assumenda.
+              Yoga is a mind and body practice. Various styles of yoga combine physical postures, breathing techniques, and meditation or relaxation.
             </p>
           </div>
           <form action="course.jsp" method="post" class="form_cart">
@@ -406,7 +395,7 @@
           </div>
           <div class="row p_content">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit temporibus tempora, voluptatem corporis quisquam debitis error a molestias incidunt eveniet! Deserunt minima odit sapiente quaerat delectus accusamus eligendi soluta assumenda.
+              Weight training, also known as resistance or strength training, builds lean, stronger muscles, strengthens your bones and joints, and can help keep your metabolism in a healthy state — meaning you’ll burn more calories even when you’re resting. 
             </p>
           </div>
           <form action="course.jsp" method="post" class="form_cart">
@@ -661,7 +650,7 @@
             </div>
           </div>
           
-          <!-- for dynamic boxes <c:out value="${desc}"></c:out>-->
+          <!-- for dynamic boxes -->
                             	
           <c:forEach var="querys" items="${add_diet_box.rows}">
 	          <div class="btn shows">
@@ -705,12 +694,12 @@
             <img src="shop-12.png" alt="image not reload"></a>
           </div>
           <div class="col-8 product_box">
-            <p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. At quos eaque quisquam sapiente voluptatibus laudantium temporibus inventore fugiat consequatur? Odit!</p>
+            <p class="paragraph">Dumbbell for resistance training-great for arms, chest, back, core, and legs. Solid cast-iron core for reliable strength; will not bend or break after repeated use.</p>
           </div>
         </div>
         <div class="row">
           <div class="col-8 product_box">
-            <p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. At quos eaque quisquam sapiente voluptatibus laudantium temporibus inventore fugiat consequatur? Odit!</p>
+            <p class="paragraph">FLYBIRD Workout Bench, Adjustable Weight Bench Foldable Strength Training Bench for Home Gym</p>
           </div>
           <div class="col-4 product_box"><a href="https://www.amazon.com/FLYBIRD-Adjustable-Foldable-Strength-Training/dp/B09B7C7TVJ/ref=sr_1_53?keywords=Gym+Equipment&qid=1649036091&sr=8-53" target="_blank">
             <img src="p-1.png" alt="image not reload">
@@ -724,7 +713,7 @@
             </a>
           </div>
           <div class="col-8 product_box">
-            <p class="paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. At quos eaque quisquam sapiente voluptatibus laudantium temporibus inventore fugiat consequatur? Odit!</p>
+            <p class="paragraph">The Marcy Pro Recumbent Bike includes handle bars which move back and forth, much like an elliptical. Using the arm exercisers while pedaling will help you burn as many calories as possible during your ride</p>
           </div>
         </div>
         
@@ -797,7 +786,7 @@
     var x,y,z;
     function myFunction() {
       x = document.getElementById("popup_conatiner");
-      if (x.style.display === "none") {
+      if (x.style.display == "none") {
         x.style.display = "block";
         z.style.display = "none";
         y.style.display = "none";
@@ -810,7 +799,7 @@
     } 
     function myFunction2() {
       y = document.getElementById("popup_conatiner2");
-      if (y.style.display === "none") {
+      if (y.style.display == "none") {
         y.style.display = "block";
         z.style.display = "none";
         x.style.display = "none";
@@ -822,7 +811,7 @@
     } 
     function myFunction3() {
       z = document.getElementById("popup_conatiner3");
-      if (z.style.display === "none") {
+      if (z.style.display == "none") {
         z.style.display = "block";
         x.style.display = "none";
         y.style.display = "none";
@@ -838,7 +827,7 @@
     var c1,c2,c3,c4,c5,c6;
     function openForm() {
       c1 = document.getElementById("myForm");
-      if (c1.style.display === "none") {
+      if (c1.style.display == "none") {
         c1.style.display = "block";
         c2.style.display = "none";
         c3.style.display = "none";
@@ -857,7 +846,7 @@
     } 
     function openForm1() {
       c2 = document.getElementById("myForm1");
-      if (c2.style.display === "none") {
+      if (c2.style.display == "none") {
         c2.style.display = "block";
         c1.style.display = "none";
         c3.style.display = "none";
@@ -875,7 +864,7 @@
     } 
     function openForm2() {
       c3 = document.getElementById("myForm2");
-      if (c3.style.display === "none") {
+      if (c3.style.display == "none") {
         c3.style.display = "block";
         c1.style.display = "none";
         c2.style.display = "none";
@@ -893,7 +882,7 @@
     } 
     function openForm3() {
       c4 = document.getElementById("myForm3");
-      if (c4.style.display === "none") {
+      if (c4.style.display == "none") {
         c4.style.display = "block";
         c2.style.display = "none";
         c3.style.display = "none";
@@ -912,7 +901,7 @@
     } 
     function openForm4() {
       c5 = document.getElementById("myForm4");
-      if (c5.style.display === "none") {
+      if (c5.style.display == "none") {
         c5.style.display = "block";
         c1.style.display = "none";
         c3.style.display = "none";
@@ -930,7 +919,7 @@
     } 
     function openForm5() {
       c6 = document.getElementById("myForm5");
-      if (c6.style.display === "none") {
+      if (c6.style.display == "none") {
         c6.style.display = "block";
         c1.style.display = "none";
         c2.style.display = "none";

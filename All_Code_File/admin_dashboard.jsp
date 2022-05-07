@@ -1,24 +1,19 @@
-<%@page import="java.time.LocalDateTime"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page errorPage="error_page.jsp" %>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>USER PAGE</title>    
-    <jsp:include page="head_content.jsp"></jsp:include>
-    <link rel="stylesheet" href="style1.css" />
-    <link rel="stylesheet" href="style2.css" />
-    <style type="text/css">
-    	h4{
-    		text-transform: uppercase;	
-    	}
-    </style>
-  </head>
-  <body>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Admin Page</title>
+<jsp:include page="head_content.jsp"></jsp:include>
+<link rel="stylesheet" href="style1.css">
+<link rel="stylesheet" href="style2.css">
+</head>
+<body>
 <sql:setDataSource var="con" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3307/ued" user="root" password="gnu123"/>
 <sql:query var="getname" dataSource="${con}">
 	select * from login_user_details where Email=? and Password=?;
@@ -34,68 +29,7 @@
 <sql:query var="add_product_box" dataSource="${con}">
 	select * from product_details;
 </sql:query>
-    <div id="header">
-      <div class="container clearfix">
-        <div class="row">
-          <div class="col-2 logo">
-            <a href="#"><h4>FIT-GAINER</h4></a>
-          </div>
-          <div class="col-7  menu">
-            <ul class="float-right nav">
-              <li class="menu-list">
-                <a href="#">
-                  Home
-                  <span class="px-2"> <i class="fa fa-home"> </i> </span>
-                </a>
-              </li>
-              <li>
-                <a href="#course">Courses
-                <span class="px-2"> <i class="fa fa-book"> </i> </span>
-              </a>
-              </li>
-              <li>
-                <a href="#product">Product
-                <span class="px-2"> <i class="fa fa-cart-arrow-down"> </i> </span>
-                </a>
-              </li>
-              <li>
-                <a href="#about">About
-                <span class="px-2"> <i class="fa fa-user-circle-o"> </i> </span>
-                </a>
-              </li>
-              <li>
-                <a href="#contact">Contact Us
-                <span class="px-2"> <i class="fa fa-phone"> </i> </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-3">
-            <ul class="nav_floating_menu float-right">
-              <li class="has-dropdown">
-                <a class="user_profile">
-	              <c:forEach var="querys" items="${getname.rows}">
-	              	<c:set var="names" value="${querys.Username}"></c:set>
-	              	<c:out value="${names}"></c:out> 
-	              </c:forEach>
-	              <i class="fa fa-user-circle-o" ></i>
-                <span class="fa fa-caret-down"></span>
-                <ul>
-                  <li><a href="profile.jsp">Profile</a></li>
-                  <li><a href="dashboard.jsp">DashBoard</a></li>
-                  <li><a href="appointment.jsp">Appointment</a></li>
-                  <li>
-                  <form action="log_out.jsp">
-                  <input type="submit" value="Sign Out"></form>
-                  </li>
-                </ul>
-              </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+<jsp:include page="header2.jsp"></jsp:include>
     <div class="container-fluid" id="main">
       <div class="row">
         <div class="col-5 title">
@@ -112,15 +46,17 @@
         <div class="col-7 main-bg bg-pic  "></div>
       </div>
     </div>
+    
+    <!-- course body -->
+    
     <div id="course" class="container-fluid course title-container">
       <div class="row " >
         <div class="col py-3 title-heading"><h3>COURSES</h3></div>
       </div>
       <div class="container">
         <div class="row row-cols-3 courses-title" >
-
           <div class="col course-box" onclick="openForm()">
-            <!-- <a href="muscular.jsp"> -->
+            
               <div class="row course-img">
                 <div class="col c-img">
                   <img src="poster-1.png" alt="image not found">
@@ -140,11 +76,10 @@
                 <input type="submit" value="SUBMIT">
                 </div>
               </div>
-            <!-- </a> -->
           </div>
 
           <div class="col  course-box"  onclick="openForm1()">
-            <!-- <a href="#"> -->
+           
               <div class="row course-img">
                 <div class="col c-img">
                   <img src="poster-2.png" alt="image not found">
@@ -164,11 +99,10 @@
                 <input type="submit" value="SUBMIT">
                 </div>
               </div>
-            <!-- </a> -->
           </div>
 
           <div class="col  course-box" onclick="openForm2()">
-          <!-- <a href="#"> -->
+          
             <div class="row course-img">
               <div class="col c-img">
                 <img src="home-banner-2.png" alt="image not found">
@@ -187,11 +121,10 @@
                 <input type="submit" value="SUBMIT">
               </div>
             </div>
-          <!-- </a> -->
           </div>
 
           <div class="col  course-box" onclick="openForm3()">
-           <!--  <a href="#"> -->
+          
               <div class="row course-img">
                 <div class="col c-img">
                   <img src="home-banner-3.png" alt="image not found">
@@ -199,7 +132,7 @@
               </div>
               <div class="row heading">
                 <div class="col">
-                  <h4>Weight Lifting</h4>
+                  <h4>Weight Training</h4>
                 </div>
               </div>
               <div class="row paragraph">
@@ -210,11 +143,10 @@
                 <input type="submit" value="SUBMIT">
                 </div>
               </div>
-            <!-- </a> -->
           </div>
 
           <div class="col  course-box" onclick="openForm4()">
-            <!-- <a href="#"> -->
+            
               <div class="row course-img">
                 <div class="col c-img">
                   <img src="home-banner-4.png" alt="image not found">
@@ -233,11 +165,10 @@
                 <input type="submit" value="SUBMIT">
                 </div>
               </div>
-            <!-- </a> -->
           </div>
 
           <div class="col  course-box" onclick="openForm5()">
-          <!-- <a href=""> -->
+          
             <div class="row course-img">
               <div class="col c-img">
                 <img src="poster-2.png" alt="image not found">
@@ -257,12 +188,14 @@
               </div>
             </div>
           </div>
-           <!-- FOR DYNAMIC COURSE BOX -->
-           <c:forEach var="course_db" items="${add_course_box.rows }">
+          
+          
+          <!-- FOR DYNAMIC COURSE BOX -->
+          <c:forEach var="course_db" items="${add_course_box.rows }">
           	<c:set var="c_link" value="${course_db.Course_Link }"></c:set>
 	          <div class="col  course-box" >
 	          	<div class="row course-img">
-	              <div class="col c-img">
+	              <div class="col c-img c-img2">
 	                <img src="${c_link }" alt="image not found">
 	              </div>
 	            </div>
@@ -287,7 +220,7 @@
           </c:forEach>
         </div>
 
-        <!-- All Cousre Specification is here -->
+        <!-- All Course Specification is here -->
 
         <!-- 1.  -->
         <div class="form-popup" id="myForm">
@@ -392,7 +325,7 @@
           </div>
           <div class="row p_content">
             <p>
-              Weight training, also known as resistance or strength training, builds lean, stronger muscles, strengthens your bones and joints, and can help keep your metabolism in a healthy state — meaning you’ll burn more calories even when you’re resting.
+              Weight training, also known as resistance or strength training, builds lean, stronger muscles, strengthens your bones and joints, and can help keep your metabolism in a healthy state — meaning you’ll burn more calories even when you’re resting. 
             </p>
           </div>
           <form action="course.jsp" method="post" class="form_cart">
@@ -453,7 +386,7 @@
         <!-- 6.  -->
         <div class="form-popup" id="myForm5">
           <div class="row">
-            <h3>DOLA SOLA</h3>
+            <h3>BICEPS</h3>
           </div>
           <div class="row p_content">
             <p>
@@ -483,15 +416,107 @@
             </div>
           </form>
         </div>
-        <!-- ending specification section -->
 
-      </div>
+        <!-- ending of special section -->
       
+      </div>
     </div>
-    <!-- ending of special section -->
-<!-- course body completed -->
 
-<!-- Diet Section -->
+    <!-- special for admin page for adding boxes into web page -->
+    
+    <div class="container-fluid admin_manupulation">
+      <div class="container">
+        <div class="row crud_box">
+          <div class="col btn-1"><button id="add_product" onclick="myFunction()">Add Product</button></div>
+          <div class="col btn-1"><button id="add_courses" onclick="myFunction2()">Add Courses</button></div>
+          <div class="col btn-1"><button id="add_diet_plan" onclick="myFunction3()">Add Diet Plan</button></div>
+        </div>
+      </div>
+    </div>
+    
+	<!-- Add Dynamic Course Box  -->
+	
+    <div class="conatainer-fluid popup_container" id="popup_conatiner">
+      <div class="row " >
+        <div class="col py-3 title-heading"><h3>Add Product Card</h3></div>
+      </div>
+      <div class="container">
+        <div id="addbox" class="popup">
+          <form action="addproduct.jsp" id="add_product2" class="add_content" method="post">
+            <div class="row popup_decorate">
+              <div class="offset-1 col-5">
+                <input type="text" name="product_link"  placeholder="Add Product Link" required>	
+                <input type="text" name="photo_link"  placeholder="Add Photo Link" required>	
+              </div>
+              <div class="col-6">
+                <textarea name="product_desc" id="description" cols="15" rows="4" placeholder="Enter Your Description" required></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-10 col ">
+                <input class="popup_btn" type="submit" value="DONE">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="conatainer-fluid popup_container" id="popup_conatiner2">
+      <div class="row " >
+        <div class="col py-3 title-heading"><h3>Add Courses Card</h3></div>
+      </div>
+      <div class="container">
+        <div id="addbox" class="popup">
+          <form action="addcourse.jsp" id="add_course2" class="add_content" method="post">
+            <div class="row popup_decorate">
+              <div class="offset-1 col-5">
+                <input type="text" autocomplete="off" name="course_name" id="course_name" placeholder="Add Course Name" required>
+                <input type="text" autocomplete="off" name="course_link" id="course_link" placeholder="Add Image Link" required>
+                <input type="number" autocomplete="off" name="course_price" id="course_price" placeholder="Add Course Price" required>
+              </div>
+              <div class="col-6">
+                <textarea name="course_desc" id="description" cols="15" rows="4" placeholder="Enter Your Description" required></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-10 col ">
+                <input class="popup_btn" type="submit" value="DONE">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+   
+    <div class="conatainer-fluid popup_container" id="popup_conatiner3">
+      <div class="row " >
+        <div class="col py-3 title-heading"><h3>ADD Diet Plan</h3></div>
+      </div>
+      <div class="container">
+        <div id="addbox" class="popup">
+          <form action="diet_details.jsp" id="add_diet2" class="add_content" method="post">
+            <div class="row popup_decorate">
+              <div class="offset-1 col-5">
+                <input type="text" name="diet_name" autocomplete="off" id="" placeholder="Add Course Name" required>
+              </div>
+              <div class="col-6">
+                <!-- <input type="text" placeholder="Add Description only in 30 words"> -->
+                <textarea name="diet_description" id="description" cols="15" rows="4" placeholder="Enter Your Description" required ></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="offset-10 col ">
+                <input class="popup_btn" type="submit" value="DONE">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ending of special section -->
+    <!-- course body completed -->
 
     <div class="container-fluid diet title-container">
       <div class="row">
@@ -511,8 +536,9 @@
               <div class="row paragraph">
                 <div class="col">
                   <ul>
-                    <li style="list-style: circle;">A healthy eating plan gives your body the nutrients it needs every day while staying within your daily calorie goal for weight loss.
-                    <li style="list-style: circle;">A healthy eating plan also will lower your risk for heart disease and other health conditions.</li>
+                    <li style="list-style: disc;">A healthy eating plan gives your body the nutrients it needs every day while staying within your daily calorie goal for weight loss.</li>
+                    
+                    <li style="list-style: disc;"> A healthy eating plan also will lower your risk for heart disease and other health conditions.</li>
                     </li>
                   </ul>
                 </div>
@@ -529,8 +555,8 @@
               <div class="row paragraph">
                 <div class="col">
                   <ul>
-                    <li style="list-style: circle;">Weight loss and gain revolve around caloric consumption and expenditure.
-                    <li style="list-style: circle;">Simply put, you lose weight when you consume fewer calories than you expend and you gain weight when you consume more calories than you sweat. </li>
+                    <li style="list-style: disc;">Weight loss and gain revolve around caloric consumption and expenditure.</li> 
+                    <li style="list-style: disc;">Simply put, you lose weight when you consume fewer calories than you expend and you gain weight when you consume more calories than you sweat. 
                     </li>
                   </ul>
                 </div>
@@ -547,14 +573,16 @@
               <div class="row paragraph">
                 <div class="col">
                   <ul>
-                    <li style="list-style: circle;">There are numerous fat loss diet plans available. But what is important is that you choose a fat loss diet plan which suits you.</li>
-                    </li>
+                    <li style="list-style: disc;">There are numerous fat loss diet plans available. But what is important is that you choose a fat loss diet plan which suits you.</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <!-- for dynamic diet boxes -->
+          <!-- JDT
+           -->
+          <!-- for dynamic boxes -->
+                            	
           <c:forEach var="querys" items="${add_diet_box.rows}">
 	          <div class="btn shows">
 	            <div class="col diet-box">
@@ -571,7 +599,7 @@
 	                  	<c:set var="desc" value="${querys.Descriptions}"></c:set>	                  	
 	                  	<c:set var = "string1" value = "${fn:split(desc, '.')}"/>
 	                  	<c:forEach var="i" begin="0" end="${fn:length(string1)-1 }">
-	                  	<li style="list-style: circle;">
+	                  	<li style="list-style: disc;">
 	                  	<c:out value="${string1[i]}"></c:out>
 	                    </li></c:forEach>
 	                  </ul>
@@ -583,8 +611,7 @@
         </div>
       </div>
     </div>
-<!-- PRODUCT SECTION -->
-
+    <!-- PRODUCT SECTION -->
     <div id="product" class="container-fluid product title-container">
       <div class="row">
         <div class="col py-3 title-heading">
@@ -620,10 +647,10 @@
             <p class="paragraph">The Marcy Pro Recumbent Bike includes handle bars which move back and forth, much like an elliptical. Using the arm exercisers while pedaling will help you burn as many calories as possible during your ride</p>
           </div>
         </div>
-        <!-- DYNAMIC PRODUCT SECTION -->
+        
         <c:forEach var="querys" items="${add_product_box.rows}">
 	        <div class="row">
-	          <div class="col-4 product_box">
+	          <div class="col-4 product_box p-img2">
 	          <c:set var="links" value="${querys.Product_Link}"></c:set>
 	          <c:set var="p_links" value="${querys.Product_Photo}"></c:set>
 	            <a href="${links }" target="_blank" class="product_a_tag change_shape">
@@ -638,10 +665,9 @@
 	          </div>
 	        </div>
         </c:forEach>
-
       </div>
     </div>
-
+    <!-- ABOUT SECTION -->
     <div id="about" class="container-fulid about">
       <div class="container">
         <div class="row">
@@ -669,78 +695,66 @@
            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div id="contact" class="container-fulid contact">
-      <div class="container">
-        <div class="row">
-          <div class="col py-3 title-heading">
-            <h3>Contact US</h3>
-          </div>
-        </div>
-        <div class="row mh-50">
-          <div class="col">
-            <form action="feedback.jsp" method="post">
-              <div class="row" >
-                <div class="col-7 ">
-                  
-                  <div class="row">
-                    <div class="offset-3 col-3 input_format">
-                      <label for="pass">Name</label>
-                    </div>
-                    <div class="col-6"> 
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter Your Name.."
-                        required
-                        autocomplete="off"
-                      />
-                    </div>
-                  </div>
-               	  <div class="row">
-                    <div class="offset-3 col-3 input_format">
-                      <label for="email">EMAIL</label>
-                    </div>
-                    <div class="col-6">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter Your Email."
-                        required
-                        autocomplete="off"
-                      />
-                    </div>
-                  </div>      
-                </div>
-                <div class="col-5 textarea-css">
-                  <textarea placeholder="Enter Your Message... " name="comment"></textarea>
-                </div>
-              </div>
-              <div class="row btn feedback_btn d-flex justify-content-around align-items-center">
-	                <a href="feedback_page.jsp">See FeedBack</a>
-	                <input type="submit" value="SUBMIT FEEDBACK" />
-              </div>
-              
-            </form>
-          </div>
+        <div id="contact	" class="row btn feedback_btn d-flex justify-content-end align-items-center">
+          <a href="feedback_page.jsp">See FeedBack</a>
         </div>
       </div>
     </div>
     
+
+    <!-- FOOTER -->
     <div class="container-fluid footer">
       <div class="row footer-row">
         <div class="col">FIT-GAINER</div>
         <div class="col">&copy; COPYRIGHT 2022</div>
         <div class="col">+91 9798224316</div>
-     </div>
-   </div>
-	
+      </div>
+    </div>
   </body>
+
+  <!-- Pop Up Boxes JavaScript -->
   <script>
+    var x,y,z;
+    function myFunction() {
+      x = document.getElementById("popup_conatiner");
+      if (x.style.display == "none") {
+        x.style.display = "block";
+        z.style.display = "none";
+        y.style.display = "none";
+
+      } else {
+        x.style.display = "none";
+        z.style.display = "none";
+        y.style.display = "none";
+      }
+    } 
+    function myFunction2() {
+      y = document.getElementById("popup_conatiner2");
+      if (y.style.display == "none") {
+        y.style.display = "block";
+        z.style.display = "none";
+        x.style.display = "none";
+      } else {
+        x.style.display = "none";
+        z.style.display = "none";
+        y.style.display = "none";
+      }
+    } 
+    function myFunction3() {
+      z = document.getElementById("popup_conatiner3");
+      if (z.style.display == "none") {
+        z.style.display = "block";
+        x.style.display = "none";
+        y.style.display = "none";
+      } else {
+        z.style.display = "none";
+        y.style.display = "none";
+        x.style.display = "none";
+      }
+    } 
+    //end of dynamic course box script
+
+    // for popup box script
     var c1,c2,c3,c4,c5,c6;
     function openForm() {
       c1 = document.getElementById("myForm");
@@ -818,7 +832,7 @@
     } 
     function openForm4() {
       c5 = document.getElementById("myForm4");
-      if (c5.style.display === "none") {
+      if (c5.style.display == "none") {
         c5.style.display = "block";
         c1.style.display = "none";
         c3.style.display = "none";
@@ -873,6 +887,12 @@
       document.getElementById("myForm5").style.display = "none";
     }
     // end
+    function search_func(){
+      document.getElementById("submit").style.display="inline-block";
+    }
+    /* 51 */
   </script>
 </html>
+
+
 

@@ -16,19 +16,13 @@
   	<sql:param value="${obj.email }"></sql:param>
   	<sql:param value="${obj.pass }"></sql:param>
 </sql:query>
-
-<%-- <c:forEach var="querys" items="${getname.rows}"> --%>
-<%-- 	<c:if test="${getname.Name.equals(null) }"> --%>
-<!-- 		log-out header.jsp page  -->
-<%-- 	</c:if> --%>
-<%-- </c:forEach> --%>
     <div id="header">
       <div class="container clearfix">
         <div class="row">
           <div class="col-2 logo">
             <a href="" id="homes" onclick="check_validation()"><h4>FIT-GAINER</h4></a>
           </div>
-          <div class="col-7 menu">
+          <div class="col-8 menu">
             <ul class="float-right nav">
               <li class="menu-list">
                 <a href="" id="h1" onclick="check_validation()">
@@ -60,7 +54,7 @@
               </li>
             </ul>
           </div>
-          <div class="col-3">
+          <div class="col-2">
             <ul class="nav_floating_menu float-right">
               <li class="has-dropdown">
                 <a class="user_profile">
@@ -72,14 +66,9 @@
                   <i class="fa fa-user-circle-o"></i>
                 <span class="fa fa-caret-down"></span>
                 <ul style="z-index: 10;">
-                  <li><a href="profile.jsp">Profile</a></li>
-                  <c:if test="${profile_data eq 'trainer' }">
-                  	<li><a href="trainer_customer.jsp">Customer</a></li>
-                  </c:if>
-                  <li><a href="dashboard.jsp">DashBoard</a></li>
-                  <c:if test="${profile_data eq 'user' }">
-                  	<li><a href="appointment.jsp">Appointment</a></li>
-                  </c:if>
+                  <li><a href="a_profile.jsp">Profile</a></li>
+                  <li><a href="user.jsp">User</a></li>
+                  <li><a href="trainer_approved.jsp">Approved</a></li>                  
                   <li>
 	                  <form action="log_out.jsp">
 	                  <input type="submit" value="Sign Out"></form>
@@ -120,6 +109,6 @@
     	  document.getElementById("h4").setAttribute("href", "admin_dashboard.jsp")
     	  document.getElementById("h5").setAttribute("href", "admin_dashboard.jsp")
       }
-  	}
+    }
   </script>
 </html>

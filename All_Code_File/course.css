@@ -149,3 +149,46 @@ body{
 .profile_jsp_content form .row {
   margin: 0;
 }
+#appointment{
+	background: #050515;
+	color: #d6d6d6;	
+}
+.appointment .box{
+background:transparent;
+border: 2px solid aquamarine;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px 10px;
+}
+.appointment .title-heading a{
+	color:#ffff00;
+	transition:all 0.4s;
+}
+.appointment .title-heading a:hover{
+	color:#00ff40;
+}
+.appointment .box .title-heading {
+  padding: 10px;
+}
+/* add appointment css */
+.appointment .row{
+	padding-bottom:10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.appointment .row .col-5{
+	width:300px;
+}
+.appointment form .col{
+background: transparent;
+}
+.appointment form input{
+	color:chartreuse;
+/* 	width:inherit; */
+}
+.appointment form .col-8{
+	width:305px
+}

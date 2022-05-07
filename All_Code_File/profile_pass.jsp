@@ -39,26 +39,18 @@
 			}else if(rs.getString("Profile").equals("trainer")){
 				k=1;
 			}
-		}
-		
-		/* if(j>0 && k==0){
-			request.getSession().setAttribute("obj", obj);
-			RequestDispatcher rd = request.getRequestDispatcher("user_dashboard.jsp");
-			rd.forward(request, response);
-		}else if(j==0 && k>0){
-			request.getSession().setAttribute("obj", obj);
-			RequestDispatcher rd = request.getRequestDispatcher("trainer_dashboard.jsp");
-			rd.forward(request, response);
-		}else{
-			RequestDispatcher rd = request.getRequestDispatcher("login.html");
-			rd.forward(request, response);
-			out.print("<h4 style='color:red;'>Invalid Email You Input</h4>");
-		} */
-		response.sendRedirect("login.html");
+		}		
 	}catch (Exception e) {
 		out.print(e);
 	}
 	
+	%>
+	<div class="container d-flex align-items-center flex-column p-5 justify-content-center text-center" style="min-height: 96vh;">
+		<h3 class="display-3 text-success">Password Changes Successfully<br>Now You have to Login Again...</h3><br>
+		<a href="login.html" class="btn btn-outline-success">Go To Login Page</a>
+	</div> 
+	<%
+		response.setHeader("Refresh", "5;login.html");
 	%>
 </body>
 </html>

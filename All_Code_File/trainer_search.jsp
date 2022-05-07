@@ -23,58 +23,82 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style1.css" />
+    <style type="text/css">
+    	input[type=checkbox]{
+			width:auto;
+		}
+    </style>
   </head>
   <body>
 <sql:setDataSource var="con" driver="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3307/ued" user="root" password="gnu123"/>
-<sql:query var="alluser" dataSource="${con}">
-	select * from login_user_details;
+
+
+<sql:query var="alltrainer" dataSource="${con}">
+	select * from trainer_details where Name = ? or Email = ? or Specialist = ? or Mobile_Number = ? or Trainer_Approved = ?;
+	<sql:param value="${obj3.t_name}"></sql:param>
+	<sql:param value="${obj3.t_email}"></sql:param>
+	<sql:param value="${obj3.t_specialist}"></sql:param>
+	<sql:param value="${obj3.t_mb_number}"></sql:param>
+	<sql:param value="${obj3.t_approved}"></sql:param>
 </sql:query>
-    <jsp:include page="header2.jsp"></jsp:include>
+    <jsp:include page="header.jsp"></jsp:include>
+    
     <div class="container-fluid dashboard">
       <div class="container">
         <div class="row user_head">
           <div class="offset-3 col-5">
             <div class="title-heading ">
-              <h4>ALL USER DETAILS</h4>
+              <h4>ALL TRAINER DETAILS</h4>
             </div>
           </div>
           <div class="col-4 title-heading ">
-            <form action="searchuser" method="post">
-          	<input type="text" id="search" onclick="search_func()" class="search" name="search_value" placeholder="Search........" required autocomplete="off">
-            <label for="search"><i class="fa fa-search"></i></label>
-            <input type="submit" id="submit" value="search">
-            </form>
+            <a href="trainer_approved.jsp" style='color:#fff; '><i class='fa fa-arrow-circle-left'></i> Back User list</a>
           </div>
         </div>
+        <form action="status_update" method="post">
         <div class="row user_content">
-          <div class="col">USER NAME</div>
-          <div class="col">EMAIL </div>
-          <div class="col">PROFILE </div>
-          <div class="col">GENDER </div>
+          <div class="col">Tr. NAME</div>
+          <div class="col-4">EMAIL </div>
+          <div class="col">SPECIALIST</div>
+          <div class="col-2">MOBILE NO.</div>
+          <div class="col">STATUS</div>
+          <div class="col">UPDATE</div>
         </div>
-        <c:forEach var="query" items="${alluser.rows}">
+        <%! int i=0; %>
+        <c:forEach var="query" items="${alltrainer.rows}">
           <div class="row user_detail">
-          
-            <div class="col user_details">
-              <c:set var="names" value="${query.Username}"></c:set>
+          <div class="col user_details">
+              <c:set var="names" value="${query.Name}"></c:set>
               <c:out value="${names}"></c:out>
             </div>
-            <div class="col user_details">
+            <div class="col-4 user_details">
               <c:set var="email" value="${query.Email}"></c:set>
               <c:out value="${email}"></c:out>
             </div>
             <div class="col user_details">
-              <c:set var="profile" value="${query.Profile}"></c:set>
-              <c:out value="${profile}"></c:out>
+              <c:set var="specialist" value="${query.Specialist}"></c:set>
+              <c:out value="${specialist}"></c:out>
+            </div>
+            <div class="col-2 user_details">
+              <c:set var="mb_number" value="${query.Mobile_Number}"></c:set>
+              <c:out value="${mb_number}"></c:out>
             </div>
             <div class="col user_details">
-              <c:set var="gender" value="${query.Gender}"></c:set>
-              <c:out value="${gender}"></c:out>
+              <c:set var="status" value="${query.Trainer_Approved}"></c:set>
+              <c:out value="${status}"></c:out>
             </div>
-          </div>
+           	<div class="col user_details">
+        		<c:if test="${query.Trainer_Approved eq 'pending'}">
+        			<input type="checkbox" value="${query.Email }" id="check_box" name="Choice<%=i %>" >
+		          		<% i=i+1; %>
+		        </c:if>
+        	</div>
+         </div>
         </c:forEach>
+        <input type="submit" value="UPDATE" class="border-1 border-danger">
+        </form>
       </div> 
-    </div>
+    </div> 
 </body>
   <script>
     function search_func(){
